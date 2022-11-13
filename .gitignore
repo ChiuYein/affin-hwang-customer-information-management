@@ -1,0 +1,2 @@
+# exclude during commit 
+/node_modules
