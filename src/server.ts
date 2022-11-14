@@ -3,6 +3,9 @@ import express from "express";
 import { json } from "body-parser";
 import cors from "cors";
 
+// Routes
+import Routes from "./Routes";
+
 // swagger
 import swaggerUI from "swagger-ui-express";
 import swaggerJsDoc from "swagger-jsdoc";
@@ -28,6 +31,7 @@ function server() {
   const expressApp = express();
   expressApp.use(json());
   expressApp.use(cors());
+  expressApp.use(Routes);
 
   expressApp.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
   expressApp.all("*", () => {
