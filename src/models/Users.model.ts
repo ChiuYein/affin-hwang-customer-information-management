@@ -38,7 +38,6 @@ export class Users extends Model<Users, CreationAttributes> {
 }
 
 interface CreationAttributes {
-  email: string;
   firstName: string;
   lastName: string;
   emailAddress: string;
