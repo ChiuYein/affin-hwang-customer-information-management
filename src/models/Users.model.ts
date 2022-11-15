@@ -17,9 +17,6 @@ export class Users extends Model<Users, CreationAttributes> {
   @Column({ type: DataTypes.INTEGER })
   id!: number;
 
-  @Column({ type: DataTypes.STRING })
-  email!: string;
-
   @Column({ field: "firstName", type: DataTypes.STRING })
   firstName!: string;
 
