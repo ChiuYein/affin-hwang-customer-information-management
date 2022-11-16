@@ -72,6 +72,27 @@ Apis.get("/user-details/:userId", async(req, res) => {
 
 /**
  * @swagger
+ * /user-list:
+ *  get:
+ *      summary: Gets all user
+ *      responses:
+ *          200:
+ *              description: Gets all user
+ */
+ Apis.get("/user-list", async(_req, res) => {
+    try {
+      const userService = new UserService();
+      const userList = await userService.getAllUsersList();
+      res.status(200).send({
+        data: userList
+      })
+    } catch (error) {
+      throw new Error(error)
+    }
+  });
+
+/**
+ * @swagger
  * /update/user-details:
  *  put:
  *      summary: update the user details

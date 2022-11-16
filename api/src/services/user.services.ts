@@ -31,6 +31,15 @@ export class UserService {
     }
    }
 
+   async getAllUsersList(): Promise<Users[]> {
+    try {
+        const allUsers = await Users.findAll();
+        return allUsers ;
+    } catch (error) {
+        throw new Error(error)
+    }
+   }
+
    async updateUserDetails(userDetails: UserDetailInterface): Promise<UserDetailInterface> {
     try {
         await Users.update( { firstName: userDetails.firstName, lastName: userDetails.lastName, emailAddress: userDetails.emailAddress}, {where: { id : userDetails.id }});
