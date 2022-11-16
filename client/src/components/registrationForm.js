@@ -16,7 +16,6 @@ export default function RegistrationForm() {
     axios
       .post(`${baseURL}register`, { firstName, lastName, emailAddress })
       .then((response) => {
-        console.log("response:", response);
         navigate("/dashboard");
       });
   };

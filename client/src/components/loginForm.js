@@ -18,7 +18,6 @@ export default function LoginForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const account = users.find((user) => user.emailAddress === emailAddress);
-    console.log("account:", account);
     if (account && account.emailAddress === emailAddress) {
       setauthenticated(true);
       localStorage.setItem("authenticated", true);
