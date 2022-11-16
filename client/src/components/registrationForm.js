@@ -1,20 +1,23 @@
 // React
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const baseURL = "http://localhost:3000/";
 
 export default function RegistrationForm() {
+  const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
     axios
       .post(`${baseURL}register`, { firstName, lastName, emailAddress })
       .then((response) => {
         console.log("response:", response);
+        navigate("/dashboard");
       });
   };
 
