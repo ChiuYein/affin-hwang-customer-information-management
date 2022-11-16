@@ -1,22 +1,25 @@
+// React
 import React, { useState } from "react";
 import axios from "axios";
 
 const baseURL = "http://localhost:3000/";
 
-function RegistrationForm() {
+export default function RegistrationForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post(`${baseURL}register`, { firstName, lastName, emailAddress }).then((response) => {
-      console.log('response:', response);
-    });
+    axios
+      .post(`${baseURL}register`, { firstName, lastName, emailAddress })
+      .then((response) => {
+        console.log("response:", response);
+      });
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{textAlign: "center"}}>
+    <form onSubmit={handleSubmit} style={{ textAlign: "center" }}>
       <h1>Register</h1>
       <div>
         <label>
@@ -53,4 +56,3 @@ function RegistrationForm() {
     </form>
   );
 }
-export default RegistrationForm;
